@@ -1,0 +1,7 @@
+#  docker build -f dockerfileHW -t samplejavapp:v2 .
+#  docker run --rm samplejavapp:v2
+FROM bellsoft/liberica-openjdk-alpine:16.0.1
+COPY ./java ./src
+RUN mkdir ./out
+RUN javac -sourcepath ./src -d out src/homework01/Main.java
+CMD java -classpath ./out homework01.Main
